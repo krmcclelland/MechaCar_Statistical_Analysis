@@ -68,11 +68,15 @@ The means of the lot numbers are similar to the population mean and the sample m
 ![Pic 4](https://github.com/krmcclelland/MechaCar_Statistical_Analysis/blob/main/Images/4_lot_sum.png)
 
 1. The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch. Does the current manufacturing data meet this design specification for all manufacturing lots in total and each lot individually? Why or why not?      
+
 The variance for the total manufacturing lot is 62 < 100, which is within the expected design specifications of staying under 100 PSI.  However, when reviewing the data by Lot number, Lot 3 is a large contributing factor to the variance being high.  Lot 3 shows a variance of 170 > 100 and does not meet the design specifications.  Lot 1 and Lot 2 have significantly lower variance, 1 and 7 respectively.  
 
 ## T-Tests on Suspension Coils
 ### T-test for all Lots
-All Manufacturing Lots: p-value = .6028, alpha = .05   
+The P-values from single T-Test on PSI values (compared to the standard of 1500 PSI) for suspicion coils were:-
+
+* All PSI= 0.06028 Lot 1 PSI= 1 Lot 2 PSI= 0.6072 Lot 3 PSI= 0.04168 Assuming that the significant value should be below p = 0.05 (which is standard), then only Lot 3 is significantly different. All other lots perform the same (or are not significantly different) to the standard 1500 PSI. This, combined with the lower mean of Lot 3 and high variance, could indicate that Lot 3 is under-performing.
+   
 .60 > .05, which means the total manufacturing lot is not statistically significant from the normal distribution and normality can be assumed.  The mean falls within the 95% confidence interval.
 
 ![Pic 5](https://github.com/krmcclelland/MechaCar_Statistical_Analysis/blob/main/Images/5_lot_all.png)
@@ -112,3 +116,9 @@ Using a multiple linear regression statistical summary would show how the variab
 
 4. What data is needed to run the statistical test?     
 A random sample of n > 30 for MechaCar and their competitor, would need to be collected including the safety ratings, highway fuel efficiency, and horsepower plus running the data through RStudio.
+
+Summary
+Based on the analysis above, the major impacts on MPG are car weight, spoiler angle, and AWD capability. This would mean for any improvement on the MPG of the MechaCar, designers and enigeers to consider these variables. In addition, when looking at suspicion coils, Lot 3 has the most variance and lower PSI average. This could mean that Lot 3 should not be used within the MechaCar.
+
+Study Design: MechaCar vs Competition
+When it comes to comparing the MechaCar to its competition, the company should consider using an ANOVA test to compare the MechaCar in various categories that customers would care about: cost, city and highway fuel efficiency, horse power, safety rating, maintenance cost. ANOVA test is able to test to see if the means from multiple different samples are significantly similar or different. This means that the averages of different cars in these categories can be compared to the average of MecaCar. If the p value is greater than 0.05, then MecaCar has the same or similar performance within these categories (the null hypothesis). If the p value is less than 0.05, then MecaCar is significantly different in those categories. If it is significant different, then looking at the average of the MecaCar is the next step. If MecaCar's average is either below or above the other averages would show how it is performing against its competitors (below = worse, above = better).
